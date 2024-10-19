@@ -1,7 +1,40 @@
 ---
+import { getEntry } from "astro:content"
 import Root from "../layouts/root.astro"
+
+const { data: desserts } = await getEntry("products", "desserts")
 ---
 
 <Root title="Product list with cart">
-  <h1>Astro</h1>
+  <main>
+    <h1>Desserts</h1>
+    <ul>
+      {
+        desserts.map(({ category, name, price, image }) => (
+          <li>
+            <article>
+              <div>
+                <picture>
+                  <source media="(min-width: 1024px)" srcset={image.desktop} />
+                  <source media="(min-width: 640px)" srcset={image.tablet} />
+                  <img src={image.mobile} alt={name} />
+                </picture>
+                <button>Add to Cart</button>
+              </div>
+              <h3>{category}</h3>
+              <h4>{name}</h4>
+              <span>{price}</span>
+            </article>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+  <aside>
+    <h2>Your Cart (0)</h2>
+    <div>
+      <img src="/illustrations/empty-cart.svg" alt="empty cart" />
+      <p>Your added items will appear here</p>
+    </div>
+  </aside>
 </Root>
