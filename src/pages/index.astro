@@ -1,6 +1,8 @@
 ---
 import { getEntry } from "astro:content"
 import Root from "../layouts/root.astro"
+import Cart from "../components/cart"
+import AddButton from "../components/add-button"
 
 const { data: desserts } = await getEntry("products", "desserts")
 ---
@@ -19,7 +21,12 @@ const { data: desserts } = await getEntry("products", "desserts")
                   <source media="(min-width: 640px)" srcset={image.tablet} />
                   <img src={image.mobile} alt={name} />
                 </picture>
-                <button>Add to Cart</button>
+                <AddButton
+                  name={name}
+                  image={image.thumbnail}
+                  price={price}
+                  client:load
+                />
               </div>
               <h3>{category}</h3>
               <h4>{name}</h4>
@@ -31,10 +38,6 @@ const { data: desserts } = await getEntry("products", "desserts")
     </ul>
   </main>
   <aside>
-    <h2>Your Cart (0)</h2>
-    <div>
-      <img src="/illustrations/empty-cart.svg" alt="empty cart" />
-      <p>Your added items will appear here</p>
-    </div>
+    <Cart client:idle />
   </aside>
 </Root>
