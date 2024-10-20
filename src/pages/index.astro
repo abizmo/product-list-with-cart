@@ -1,42 +1,14 @@
 ---
-import { getEntry } from "astro:content"
-import Root from "../layouts/root.astro"
-import Cart from "../components/cart"
-import AddButton from "../components/add-button"
-import OrderConfirmed from "../components/order-confirmed"
-
-const { data: desserts } = await getEntry("products", "desserts")
+import Root from "@/layouts/root.astro"
+import Cart from "@/components/cart"
+import ProductList from "@/components/product-list.astro"
+import OrderConfirmed from "@/components/order-confirmed"
 ---
 
 <Root title="Product list with cart">
   <main>
     <h1>Desserts</h1>
-    <ul>
-      {
-        desserts.map(({ category, name, price, image }) => (
-          <li>
-            <article>
-              <div>
-                <picture>
-                  <source media="(min-width: 1024px)" srcset={image.desktop} />
-                  <source media="(min-width: 640px)" srcset={image.tablet} />
-                  <img src={image.mobile} alt={name} />
-                </picture>
-                <AddButton
-                  name={name}
-                  image={image.thumbnail}
-                  price={price}
-                  client:load
-                />
-              </div>
-              <h3>{category}</h3>
-              <h4>{name}</h4>
-              <span>{price}</span>
-            </article>
-          </li>
-        ))
-      }
-    </ul>
+    <ProductList productType="desserts" />
   </main>
   <aside>
     <Cart client:idle />

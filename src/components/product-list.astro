@@ -1,0 +1,20 @@
+---
+import { getEntry } from "astro:content"
+import ProductCard from "./product-card.astro"
+
+type Props = {
+  productType: "desserts"
+}
+const { productType } = Astro.props
+const { data: products } = await getEntry("products", productType)
+---
+
+<ul>
+  {
+    products.map((product) => (
+      <li>
+        <ProductCard {...product} />
+      </li>
+    ))
+  }
+</ul>
