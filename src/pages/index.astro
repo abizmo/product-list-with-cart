@@ -3,6 +3,7 @@ import { getEntry } from "astro:content"
 import Root from "../layouts/root.astro"
 import Cart from "../components/cart"
 import AddButton from "../components/add-button"
+import OrderConfirmed from "../components/order-confirmed"
 
 const { data: desserts } = await getEntry("products", "desserts")
 ---
@@ -40,4 +41,5 @@ const { data: desserts } = await getEntry("products", "desserts")
   <aside>
     <Cart client:idle />
   </aside>
+  <OrderConfirmed client:idle />
 </Root>

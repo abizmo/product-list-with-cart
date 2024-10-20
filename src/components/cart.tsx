@@ -1,5 +1,10 @@
 import { useStore } from "@nanostores/react"
-import { cart, removeFromCart, type CartItem } from "../stores/cart"
+import {
+  cart,
+  confirmOrder,
+  removeFromCart,
+  type CartItem,
+} from "../stores/cart"
 
 export default function Cart() {
   const $cartItems = useStore(cart)
@@ -48,7 +53,7 @@ export default function Cart() {
             <img src="/icons/carbon-neutral.svg" alt="carbon neutral" />
             This is a <b>carbon-neutral</b> delivery
           </p>
-          <button>Confirm Order</button>
+          <button onClick={confirmOrder}>Confirm Order</button>
         </>
       )}
     </>

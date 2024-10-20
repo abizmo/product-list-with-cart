@@ -1,10 +1,21 @@
-import { map } from "nanostores"
+import { atom, map } from "nanostores"
 
 export type CartItem = {
   quantity: number
   price: number
   name: string
   image: string
+}
+
+export const isConfirmed = atom(false)
+
+export function confirmOrder() {
+  isConfirmed.set(true)
+}
+
+export function clearOrder() {
+  isConfirmed.set(false)
+  cart.set({})
 }
 
 export const cart = map<Record<string, CartItem | undefined>>({})
