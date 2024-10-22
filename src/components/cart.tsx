@@ -1,14 +1,14 @@
 import { useStore } from "@nanostores/react"
+import CartItem from "@/components/cart-item"
 import {
   cart,
   confirmOrder,
-  removeFromCart,
-  type CartItem,
-} from "../stores/cart"
+  type CartItem as CartItemType,
+} from "@/stores/cart"
 
 export default function Cart() {
   const $cartItems = useStore(cart)
-  const cartItems = Object.values($cartItems) as CartItem[]
+  const cartItems = Object.values($cartItems) as CartItemType[]
   const isEmpty = cartItems.length === 0
   const items = cartItems.reduce((acc, { quantity }) => acc + quantity, 0)
   const total = cartItems.reduce(
@@ -27,22 +27,9 @@ export default function Cart() {
       ) : (
         <>
           <ul>
-            {cartItems.map(({ name, quantity, price }: CartItem) => (
-              <li key={name}>
-                <div>
-                  <p>{name}</p>
-                  <div>
-                    <span>{quantity}</span>
-                    <span>{price}</span>
-                    <span>{price * quantity}</span>
-                  </div>
-                </div>
-                <button onClick={() => removeFromCart(name)}>
-                  <img src="/icons/remove-item.svg" alt="" />
-                  <span className="visually-hidden">
-                    remove {name} from cart
-                  </span>
-                </button>
+            {cartItems.map((item: CartItemType) => (
+              <li key={item.name}>
+                <CartItem {...item} />
               </li>
             ))}
           </ul>
