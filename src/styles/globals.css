@@ -1,0 +1,47 @@
+:root {
+  --red: 14 86% 42%;
+  --green: 159 69% 38%;
+  --rose-050: 20 50% 98%;
+  --rose-100: 13 31% 94%;
+  --rose-300: 14 25% 72%;
+  --rose-400: 7 20% 60%;
+  --rose-500: 12 20% 44%;
+  --rose-900: 14 65% 9%;
+
+  --ff-sans: "Red Hat Text", sans-serif;
+
+  --fw-regular: 400;
+  --fw-medium: 600;
+  --fw-bold: 700;
+
+  --clr-background: var(--rose-050);
+  --clr-foreground: var(--rose-900);
+
+  --ff-body: var(--ff-sans);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+ul[class] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: hsl(var(--clr-background));
+  color: hsl(var(--clr-foreground));
+  margin: 0;
+  line-height: 1.6;
+  font-family: var(--ff-body);
+}
