@@ -9,7 +9,7 @@ const { productType } = Astro.props
 const { data: products } = await getEntry("products", productType)
 ---
 
-<ul>
+<ul class="product-list">
   {
     products.map((product) => (
       <li>

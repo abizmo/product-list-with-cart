@@ -1,19 +1,54 @@
 ---
 import AddButton from "@/components/add-button"
+import formatPrice from "@/utils/format-price"
 
 const { category, name, price, image } = Astro.props
 ---
 
 <article>
-  <div>
-    <picture>
+  <div class="text-center">
+    <picture class="product-image">
       <source media="(min-width: 1024px)" srcset={image.desktop} />
       <source media="(min-width: 640px)" srcset={image.tablet} />
       <img src={image.mobile} alt={name} />
     </picture>
-    <AddButton name={name} image={image.thumbnail} price={price} client:load />
+    <div class="product-actions">
+      <AddButton
+        name={name}
+        image={image.thumbnail}
+        price={price}
+        client:load
+      />
+    </div>
   </div>
-  <h3>{category}</h3>
-  <h4>{name}</h4>
-  <span>{price}</span>
+  <span class="product-category">{category}</span>
+  <h3 class="product-name">{name}</h3>
+  <span class="product-price">{formatPrice(price)}</span>
 </article>
+
+<style>
+  .product-image {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .product-actions {
+    transform: translateY(-50%);
+  }
+
+  .product-category {
+    display: block;
+    color: hsl(var(--clr-muted) / 0.8);
+    font-size: var(--fs-300);
+  }
+
+  .product-name {
+    font-size: var(--fs-400);
+    font-weight: var(--fw-medium);
+  }
+
+  .product-price {
+    color: hsl(var(--clr-accent));
+    font-weight: var(--fw-medium);
+  }
+</style>
