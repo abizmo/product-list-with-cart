@@ -5,7 +5,7 @@ import formatPrice from "@/utils/format-price"
 const { category, name, price, image } = Astro.props
 ---
 
-<article>
+<article class="product-card">
   <div class="text-center">
     <picture class="product-image">
       <source media="(min-width: 1024px)" srcset={image.desktop} />
@@ -27,6 +27,10 @@ const { category, name, price, image } = Astro.props
 </article>
 
 <style>
+  .product-card {
+    max-width: fit-content;
+  }
+
   .product-image {
     border-radius: 8px;
     overflow: hidden;
