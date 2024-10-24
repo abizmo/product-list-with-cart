@@ -6,12 +6,14 @@ import OrderConfirmed from "@/components/order-confirmed"
 ---
 
 <Root title="Product list with cart">
-  <main>
-    <h1>Desserts</h1>
-    <ProductList productType="desserts" />
-  </main>
-  <aside>
-    <Cart client:idle />
-  </aside>
+  <div class="wrapper">
+    <main>
+      <h1>Desserts</h1>
+      <ProductList productType="desserts" />
+    </main>
+    <aside>
+      <Cart client:idle />
+    </aside>
+  </div>
   <OrderConfirmed client:idle />
 </Root>

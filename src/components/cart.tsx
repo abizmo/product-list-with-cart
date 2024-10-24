@@ -6,6 +6,7 @@ import {
   type CartItem as CartItemType,
 } from "@/stores/cart"
 import "@/styles/cart.css"
+import formatPrice from "@/utils/format-price"
 
 export default function Cart() {
   const $cartItems = useStore(cart)
@@ -31,21 +32,25 @@ export default function Cart() {
         </div>
       ) : (
         <>
-          <ul>
+          <ul className="cart-items">
             {cartItems.map((item: CartItemType) => (
               <li key={item.name}>
                 <CartItem {...item} />
               </li>
             ))}
           </ul>
-          <p>
-            Order Total <strong>{total}</strong>
+          <p className="total">
+            Order Total <strong>{formatPrice(total)}</strong>
           </p>
-          <p>
+          <div className="info">
             <img src="/icons/carbon-neutral.svg" alt="carbon neutral" />
-            This is a <b>carbon-neutral</b> delivery
-          </p>
-          <button onClick={confirmOrder}>Confirm Order</button>
+            <p>
+              This is a <b>carbon-neutral</b> delivery
+            </p>
+          </div>
+          <button className="button" onClick={confirmOrder}>
+            Confirm Order
+          </button>
         </>
       )}
     </div>

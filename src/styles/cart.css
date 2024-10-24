@@ -1,12 +1,13 @@
 .cart--wrapper {
   background-color: hsl(var(--white));
   border-radius: 0.5rem;
-  padding-block: 0.5rem;
+  padding-block: 0.5rem 1.5rem;
   padding-inline: 1rem;
+  /* max-width: 24rem; */
 }
 
 .cart-title {
-  font-size: 24px;
+  font-size: var(--fs-600);
   color: hsl(var(--clr-accent));
 }
 
@@ -17,4 +18,102 @@
 
 .empty-image {
   margin-inline: auto;
+}
+
+.total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: 2rem;
+
+  & > strong {
+    font-size: var(--fs-600);
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: hsl(var(--clr-info));
+  border-radius: 0.5rem;
+  font-size: var(--fs-300);
+  margin-block-end: 2rem;
+
+  & b {
+    font-weight: var(--fw-medium);
+  }
+}
+
+.button {
+  background-color: hsl(var(--clr-accent));
+  color: hsl(var(--white));
+  border: 0;
+  height: 3.25rem;
+  width: 100%;
+  border-radius: 9999px;
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-400);
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    filter: brightness(0.9);
+  }
+}
+
+.cart-items {
+  & > li {
+    padding-block: 1rem;
+    border-bottom: 1px solid hsl(var(--clr-muted) / 0.16);
+  }
+}
+
+.item__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item__name {
+  font-weight: var(--fw-medium);
+  margin-block: 0 0.5rem;
+}
+
+.item__info-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.item__quantity {
+  color: hsl(var(--clr-accent));
+  font-weight: var(--fw-medium);
+}
+
+.item__unit-price,
+.item__price {
+  color: hsl(var(--clr-muted));
+}
+
+.item__price {
+  font-weight: var(--fw-medium);
+}
+
+.remove-button {
+  background-color: transparent;
+  border: 1px solid hsl(var(--clr-muted));
+  color: hsl(var(--clr-muted));
+  border-radius: 9999px;
+  width: 1.25rem;
+  aspect-ratio: 1;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+
+  &:hover,
+  &:focus-visible {
+    border-color: hsl(var(--clr-dark));
+    color: hsl(var(--clr-dark));
+  }
 }

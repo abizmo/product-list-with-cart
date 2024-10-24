@@ -11,6 +11,7 @@
 
   --fs-300: 0.875rem;
   --fs-400: 1rem;
+  --fs-600: 1.5rem;
   --ff-sans: "Red Hat Text", sans-serif;
 
   --fw-regular: 400;
@@ -18,9 +19,11 @@
   --fw-bold: 700;
 
   --clr-background: var(--rose-050);
+  --clr-dark: var(--rose-900);
   --clr-foreground: var(--rose-900);
   --clr-accent: var(--red);
   --clr-muted: var(--rose-500);
+  --clr-info: var(--rose-100);
 
   --ff-body: var(--ff-sans);
 }
@@ -70,4 +73,12 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap; /* added line */
   border: 0;
+}
+
+.wrapper {
+  --max-width: 76rem;
+  --padding: 1.5rem;
+
+  width: min(var(--max-width), 100% - (var(--padding) * 2));
+  margin-inline: auto;
 }
