@@ -21,6 +21,14 @@ const { title } = Astro.props
   </head>
   <body>
     <slot />
-    <Attribution />
+    <footer class="main__footer">
+      <Attribution />
+    </footer>
   </body>
 </html>
+
+<style>
+  .main__footer {
+    margin-block: 2rem 3rem;
+  }
+</style>
