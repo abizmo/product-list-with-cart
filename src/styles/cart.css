@@ -1,0 +1,20 @@
+.cart--wrapper {
+  background-color: hsl(var(--white));
+  border-radius: 0.5rem;
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+}
+
+.cart-title {
+  font-size: 24px;
+  color: hsl(var(--clr-accent));
+}
+
+.empty-cart {
+  font-size: var(--fs-300);
+  color: hsl(var(--clr-muted));
+}
+
+.empty-image {
+  margin-inline: auto;
+}

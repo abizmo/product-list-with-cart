@@ -5,6 +5,7 @@ import {
   confirmOrder,
   type CartItem as CartItemType,
 } from "@/stores/cart"
+import "@/styles/cart.css"
 
 export default function Cart() {
   const $cartItems = useStore(cart)
@@ -17,11 +18,15 @@ export default function Cart() {
   )
 
   return (
-    <>
-      <h2>Your Cart ({items})</h2>
+    <div className="cart--wrapper">
+      <h2 className="cart-title">Your Cart ({items})</h2>
       {isEmpty ? (
-        <div>
-          <img src="/illustrations/empty-cart.svg" alt="empty cart" />
+        <div className="empty-cart | text-center">
+          <img
+            className="empty-image"
+            src="/illustrations/empty-cart.svg"
+            alt="empty cart"
+          />
           <p>Your added items will appear here</p>
         </div>
       ) : (
@@ -43,6 +48,6 @@ export default function Cart() {
           <button onClick={confirmOrder}>Confirm Order</button>
         </>
       )}
-    </>
+    </div>
   )
 }

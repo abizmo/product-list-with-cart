@@ -5,7 +5,7 @@ import {
   removeOneFromCart,
   type AddToCartProps,
 } from "@/stores/cart"
-import "./add-button.css"
+import "@/styles/add-button.css"
 
 export default function AddButton({ name, image, price }: AddToCartProps) {
   const $cartItems = useStore(cart)
