@@ -46,6 +46,7 @@ ul[class] {
   margin: 0;
 }
 
+h1,
 h3,
 span {
   margin: 0;
@@ -80,5 +81,15 @@ body {
   --padding: 1.5rem;
 
   width: min(var(--max-width), 100% - (var(--padding) * 2));
+  margin-top: 4rem;
   margin-inline: auto;
+}
+
+@media (min-width: 640px) {
+  .wrapper {
+    --gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr min(50% - var(--gap), 384px);
+    gap: var(--gap);
+  }
 }
