@@ -1,0 +1,3 @@
+.product-selected {
+  border: 2px solid hsl(var(--clr-accent)) !important;
+}

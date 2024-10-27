@@ -1,17 +1,18 @@
 ---
 import AddButton from "@/components/add-button"
 import formatPrice from "@/utils/format-price"
+import ProductPicture from "./product-picture"
 
 const { category, name, price, image } = Astro.props
 ---
 
 <article class="product-card">
   <div class="text-center">
-    <picture class="product-image">
+    <ProductPicture name={name} className="product-picture" client:load>
       <source media="(min-width: 1024px)" srcset={image.desktop} />
       <source media="(min-width: 640px)" srcset={image.tablet} />
       <img src={image.mobile} alt={name} />
-    </picture>
+    </ProductPicture>
     <div class="product-actions">
       <AddButton
         name={name}
@@ -31,7 +32,8 @@ const { category, name, price, image } = Astro.props
     max-width: fit-content;
   }
 
-  .product-image {
+  .product-picture {
+    border: 2px solid transparent;
     border-radius: 8px;
     overflow: hidden;
   }
