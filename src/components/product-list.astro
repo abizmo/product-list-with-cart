@@ -21,8 +21,8 @@ const { data: products } = await getEntry("products", productType)
 
 <style>
   .product-list {
-    & li {
-      margin-block: 1.5rem;
-    }
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   }
 </style>
