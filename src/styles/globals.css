@@ -12,6 +12,7 @@
   --fs-300: 0.875rem;
   --fs-400: 1rem;
   --fs-600: 1.5rem;
+  --fs-800: 2.5rem;
   --ff-sans: "Red Hat Text", sans-serif;
 
   --fw-regular: 400;
@@ -47,6 +48,7 @@ ul[class] {
 }
 
 h1,
+h2,
 h3,
 span {
   margin: 0;
@@ -74,6 +76,10 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap; /* added line */
   border: 0;
+}
+
+.fs-800 {
+  font-size: var(--fs-800);
 }
 
 .wrapper {
