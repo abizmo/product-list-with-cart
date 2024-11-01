@@ -29,7 +29,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![product list with cart](./screenshot.jpg)
 
 ### Links
 
