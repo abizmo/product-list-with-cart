@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: []()
-- Live Site URL: []()
+- Solution URL: [https://github.com/abizmo/product-list-with-cart](https://github.com/abizmo/product-list-with-cart)
+- Live Site URL: [https://product-list-with-cart-abizmo.vercel.app/](https://product-list-with-cart-abizmo.vercel.app/)
 
 ## My process
 
@@ -46,10 +46,8 @@ Users should be able to:
 - CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- [Astro](https://astro.build/) - Web framework
+- [Nanostores](https://github.com/nanostores/nanostores) - State management
 
 ## Author
 
